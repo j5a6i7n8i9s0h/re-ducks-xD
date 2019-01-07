@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { createPost } from "../actions/postActions";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+
 class PostForm extends Component {
   constructor(props) {
     super(props);
@@ -31,24 +34,30 @@ class PostForm extends Component {
         <h1> Add Post </h1>
         <form onSubmit={this.onSubmit}>
           <div>
-            <label> Title: </label>
-            <input
-              type="text"
+            <TextField
               name="title"
+              label="Title"
+              margin="normal"
               value={this.state.title}
               onChange={this.onChange}
+              variant="outlined"
             />
           </div>
           <div>
-            <label> Body: </label>
-            <textarea
+            <TextField
               name="body"
+              label="Body"
+              margin="normal"
               value={this.state.body}
               onChange={this.onChange}
+              variant="outlined"
             />
           </div>
           <br />
-          <button type="submit"> Submit </button>
+          <Button variant="contained" color="primary" type="submit">
+            {" "}
+            Submit{" "}
+          </Button>
         </form>
       </div>
     );
